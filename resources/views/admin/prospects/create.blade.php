@@ -22,6 +22,18 @@
             </div>
 
             <div class="my-3">
+
+                @if ($errors->count())
+                <div class="alert alert-danger w-50 m-auto">
+                    <ul>
+                        @foreach ($errors->all() as $message)
+                            <li>{{  $message  }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                
+                
             
                 <form action="{{ route('admin.prospects.store')}}" method="POST" class="w-75 m-auto">
                     @csrf

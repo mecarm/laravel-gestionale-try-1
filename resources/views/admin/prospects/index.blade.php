@@ -22,6 +22,12 @@
                     </div>
                 </div>
 
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 @if ($prospects->count())
                     <table class="table table-hover">
                         <thead>
@@ -32,10 +38,19 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            @foreach ($prospects as $prospect)
+                                <tr>
+                                    <td> {{ $prospect->name }}</td>
+                                    <td> {{ $prospect->email }}</td>
+                                    <td> {{ $prospect->pretty_created }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
 
                 @endif
-            </div>
+            </>
         </div>
     </div>
 @endsection

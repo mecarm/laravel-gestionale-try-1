@@ -40,7 +40,16 @@ class ProspectsController extends Controller
     public function store(StoreProspectRequest $request)
     {
         // store prospect
+        // return $request->validated(); this code is for check with data we pass
 
+        $prospect = Prospect::create($request->only('name', 'email'));
+
+        if ( $request->hasFile('profile_image')) {
+            $path = $request->profile_image->store('public/prospects/profiles/images');
+            $prospect->update(['profile_image' => $path]);
+        }
+
+        return redirect()->route('admin.prospects.dashboard')->with('success', 'Successfully created a new Prospect');
     }
 
     /**
