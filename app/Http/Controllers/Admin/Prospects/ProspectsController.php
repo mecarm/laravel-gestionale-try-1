@@ -119,8 +119,14 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Prospect $prospect)
     {
-        //
+        if ($prospect->profile_image) {
+            Storage::delete($prospect->profile_image);
+        }
+
+        $prospect->delete();
+
+        return redirect()->route('admin.prospects.dashboard')->with('success', 'Successfully deleted prospect and all assets related to them');
     }
 }

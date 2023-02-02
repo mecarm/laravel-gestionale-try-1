@@ -21,7 +21,12 @@
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="{{ route('admin.prospects.dashboard') }}">View Dashoboard</a></li>
                           <li><a class="dropdown-item" href="{{ route('admin.prospects.show', ['prospect' => $prospect->id]) }}">View Prospect</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          <div class="dropdown-divider"></div>
+                          <li><a class="dropdown-item text-danger" href="#" onclick="deleteProspect()">Delete Prospect</a></li>
+                          <form action="{{ route('admin.prospects.delete', $prospect->id) }}" class="d-none" id="delete-prospect-form" method="POST">
+                                @csrf
+                                @method('DELETE')
+                          </form>
                         </ul>
                       </div>
                 </div>
@@ -144,6 +149,13 @@
 
             if (r){
                 document.querySelector('form#delete-profile-image-form').submit();
+            }
+        }
+        function deleteProspect(){
+            let r = confirm("Are you sure you want to delete this prospect? This cant' be undone!")
+
+            if (r) {
+                document.querySelector('form#delete-prospect-form').submit()
             }
         }
     </script>
