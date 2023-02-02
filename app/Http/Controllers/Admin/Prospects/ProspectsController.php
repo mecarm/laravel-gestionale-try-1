@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin\Prospects;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Prospects\StoreProspectRequest;
+use App\Http\Requests\Prospects\UpdateProspectRequest;
 use App\Prospect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProspectsController extends Controller
 {
@@ -81,11 +83,36 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProspectRequest $request, Prospect $prospect)
     {
-        //
+        $prospect->update($request->validated());
+
+        return back()->with('success', 'Successfully updated prospect details!');
     }
 
+    public function updateProfileImage(Request $request, Prospect $prospect)
+    {
+        if($prospect->profile_image){
+            Storage::delete($prospect->profile_image);
+        }
+        $path = $request->image->store('public/prospects/profiles/images');
+
+        $prospect->update(['profile_image' => $path]);
+
+        return back()->with('success', 'Successfully updated new profile image!');
+    }
+
+    public function destroyProfileImage(Prospect $prospect)
+    {
+        if ($prospect->profile_image) {
+
+            Storage::delete($prospect->profile_image);
+
+            $prospect->update(['profile_image' => null]);
+        }
+
+        return back()->with('success', 'Successfully deleted profile image');
+    }
     /**
      * Remove the specified resource from storage.
      *
