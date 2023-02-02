@@ -49,7 +49,7 @@ class ProspectsController extends Controller
             $prospect->update(['profile_image' => $path]);
         }
 
-        return redirect()->route('admin.prospects.dashboard')->with('success', 'Successfully created a new Prospect');
+        return redirect()->route('admin.prospects.contacts.create', $prospect->id)->with('success', 'Successfully created a new Prospect');
     }
 
     /**
@@ -58,9 +58,9 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Prospect $prospect)
     {
-        //
+        return $prospect->load('contact');
     }
 
     /**
@@ -69,9 +69,9 @@ class ProspectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Prospect $prospect)
     {
-        //
+        return view('admin.prospects.edit', compact('prospect'));
     }
 
     /**
