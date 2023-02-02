@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="card mt-3">
         <div class="card-body">
             <div class="d-flex">
@@ -73,9 +80,26 @@
                 
                         <button class="btn btn-primary float-right my-3">Update Prospect</button>
                     </form>
-        </div>
-    </div>
-    
+                </div>
+            </div> {{-- end card--}}
+            
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5>Edit Contact Details</h5>
+                    <hr>
+                    @if ($prospect->contact)
+
+                        @include('admin.prospects.contacts.edit-contact-form', ['prospect_id' => $prospect->id, 'contact' => $prospect->contact])
+                    
+                    @else
+                        <div class="d-flex">
+                            <div class="mx-auto">
+                                <a href="{{ route('admin.prospects.contacts.create', $prospect->id) }}" class="btn btn-outline-primary">Create Contact Details</a>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
 
         </div>
     </div>

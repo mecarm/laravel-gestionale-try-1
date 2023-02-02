@@ -1,9 +1,11 @@
 <div class="card mt-3 prospect-card">
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-md-2">
                 @if ($prospect->profile_image)
                     <img src="{{ Storage::url($prospect->profile_image) }}" alt="profile image">
+                @else
+                    <img class="img-fluid" src="/img/user.png" alt="">
                 @endif
             </div>
             <div class="col-sm-6">
