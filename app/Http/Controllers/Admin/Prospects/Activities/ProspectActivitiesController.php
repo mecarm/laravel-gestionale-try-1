@@ -17,4 +17,9 @@ class ProspectActivitiesController extends Controller
     {
         return view('admin.prospects.activities.create', compact('prospect'));
     }
+
+    public function store(Request $request)
+    {
+        return $request->all();
+    }
 }

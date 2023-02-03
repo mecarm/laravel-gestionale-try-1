@@ -20,6 +20,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
+        {{-- End card --}}
+
     </div>
 @endsection
