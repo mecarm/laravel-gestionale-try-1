@@ -26,4 +26,7 @@ Route::get('{prospect}/contact/create', [ProspectContactsController::class, 'cre
 Route::post('{prospect}/contact', [ProspectContactsController::class, 'store'])->where('prospect', '[0-9]+')->name('contacts.store');
 Route::put('{prospect}/contact', [ProspectContactsController::class, 'update'])->where('prospect', '[0-9]+')->name('contacts.update');
 
+//Prospects Activity
+Route::prefix('activities')->name('activities.')->group(base_path('routes/web/prospect/activities.php'));
+
 ?>

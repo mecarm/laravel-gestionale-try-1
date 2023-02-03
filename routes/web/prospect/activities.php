@@ -1,0 +1,10 @@
+<?php
+use App\Http\Controllers\Admin\Prospects\Activities\ProspectActivitiesController;
+
+//PREFIX: admin/prospects/activities
+
+Route::get('{prospect}', [ProspectActivitiesController::class, 'index'])->name('dashboard');
+Route::get('{prospect}/create', [ProspectActivitiesController::class, 'create'])->name('create');
+
+
+?>

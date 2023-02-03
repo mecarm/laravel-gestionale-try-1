@@ -125,6 +125,10 @@ class ProspectsController extends Controller
             Storage::delete($prospect->profile_image);
         }
 
+        if($prospect->contact) {
+            Storage::delete($prospect->contact);
+        }
+
         $prospect->delete();
 
         return redirect()->route('admin.prospects.dashboard')->with('success', 'Successfully deleted prospect and all assets related to them');

@@ -8,9 +8,9 @@
                     <img class="img-fluid" src="/img/user.png" alt="">
                 @endif
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-md-8">
                 <h5>{{ $prospect->name }}</h5>
-                <ul>
+                <ul class="list-style-none">
                     <li>
                         <strong>Email:</strong> {{ $prospect->email }}
                     </li>
@@ -19,13 +19,14 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-md-2">
                 <div class="dropdown-center d-block">
-                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle float-right" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle btn-block" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Actions
                     </button>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit Prospect</a></li>
+                      <li><a class="dropdown-item" href="{{ route('admin.prospects.activities.dashboard', ['prospect' => $prospect->id]) }}">View Activity</a></li>
                     </ul>
                   </div>
             </div>
