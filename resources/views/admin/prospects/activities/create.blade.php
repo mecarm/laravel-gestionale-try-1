@@ -65,42 +65,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <label for="" class="col-md-3">Documents</label>
-                        <div class="col-md-9">
-                            <input type="file" class="form-control-file" name="documents[]" multiple>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="" class="col-md-3">Schedule Follow Up</label>
-                        <div class="col-md-9">
-                            <input type="datetime-local" class="form-control" name="follow_up_date">
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="" class="col-md-3">Follow Up Reason</label>
-                        <div class="col-md-9">
-                            <select class="form-select" name="followup_reason">
-                                <option selected disabled value="">Select a reason</option>
-                                <option value="prospecting">Prospecting</option>
-                                <option value="demo">Demo</option>
-                                <option value="follow_up">Follow Up</option>
-                                <option value="document_signing">Document Signing</option>
-                                <option value="close_sale">Close Sale</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="" class="col-md-3">Follow Up Notes</label>
-                        <div class="col-md-9">
-                            <textarea name="followup_notes" id="" cols="30" rows="10" class="form-control" placeholder="Enter in your notes to help remind you of what to do for the next follow up"></textarea>
-                        </div>
-                    </div>
-
                     <button class="btn btn-primary float-right">Add Activity</button>
                 </form>
             </div>

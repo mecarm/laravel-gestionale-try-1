@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\Prospects\ProspectContactsController;
+use App\Http\Controllers\Admin\Prospects\ProspectDashboardController;
 use App\Http\Controllers\Admin\Prospects\ProspectsController;
 
 
@@ -13,6 +14,9 @@ Route::get('create', [ProspectsController::class, 'create'])->name('create');
 Route::get('{prospect}/edit', [ProspectsController::class, 'edit'])->where('prospect', '[0-9]+')->name('edit');
 Route::get('{prospect}', [ProspectsController::class, 'show'])->where('prospect', '[0-9]+')->name('show');
 Route::delete('{prospect}', [ProspectsController::class, 'destroy'])->where('prospect', '[0-9]+')->name('delete');
+
+//Prospects/prospect/ crud
+Route::get('{prospect}/dashboard', [ProspectDashboardController::class, 'index'])->where('prospect', '[0-9]+')->name('prospect.dashboard');
 
 Route::post('/', [ProspectsController::class, 'store'])->name('store');
 Route::put('{prospect}', [ProspectsController::class, 'update'])->where('prospect', '[0-9]+')->name('update');

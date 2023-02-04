@@ -21,7 +21,8 @@
                               Actions
                             </button>
                             <ul class="dropdown-menu dropdown-menu-left">
-                              <li><a class="dropdown-item" href="{{ route('admin.prospects.activities.create', $prospect) }}">Create Activity</a></li>
+                              <li><a class="dropdown-item" href="{{ route('admin.prospects.prospect.dashboard', $prospect) }}">Prospect Dashboard</a></li>
+                              <li><a class="dropdown-item" href="{{ route('admin.prospects.activities.create', $prospect) }}">Log Activity</a></li>
                             </ul>
                           </div>
                     </div>
@@ -29,11 +30,29 @@
             </div>
         </div> 
         {{-- End card --}}
+        {{-- Links per paginate --}}
+        {{ $activities->links() }}
 
-        @foreach (ProspectActivity::prospectId($prospect->id)->with('documents')->latest()->paginate(10) as $activity)
+        @foreach ($activities as $activity)
             <div class="card mt-3">
                 <div class="card-body">
-                    {{ $activity }}
+                    <div class="d-flex">
+
+                        <div>
+                            <h5>Activity type: {{ $activity->type }}</h5>
+                            <h5>Communication type: {{ $activity->communication_type }}</h5>
+                        </div>
+
+                        <div class="ml-auto">
+                            <h6><em>{{date('F d, Y - g:i A', strtotime($activity->created_at))}}</em></h6>
+                        </div>
+
+                    </div>
+
+                    <hr class="bg-dark">
+                    <h5>Notes:</h5>
+                    <p>{{ $activity->notes }}</p>
+                    
                 </div>
             </div>
         @endforeach

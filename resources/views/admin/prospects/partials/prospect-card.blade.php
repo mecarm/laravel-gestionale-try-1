@@ -25,6 +25,7 @@
                         Actions
                     </button>
                     <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{{ route('admin.prospects.prospect.dashboard', ['prospect' => $prospect->id]) }}">Prospect Dashboard</a></li>
                       <li><a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit Prospect</a></li>
                       <li><a class="dropdown-item" href="{{ route('admin.prospects.activities.dashboard', ['prospect' => $prospect->id]) }}">View Activity</a></li>
                     </ul>
