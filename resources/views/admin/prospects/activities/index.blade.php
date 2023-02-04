@@ -30,5 +30,13 @@
         </div> 
         {{-- End card --}}
 
+        @foreach (ProspectActivity::prospectId($prospect->id)->with('documents')->latest()->paginate(10) as $activity)
+            <div class="card mt-3">
+                <div class="card-body">
+                    {{ $activity }}
+                </div>
+            </div>
+        @endforeach
+
     </div>
 @endsection
