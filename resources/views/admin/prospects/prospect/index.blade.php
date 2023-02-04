@@ -16,7 +16,7 @@
                     <h3>Recent Activity</h3>
                     <div class="ml-auto">
                         <div class="dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Actions
                             </button>
                             <ul class="dropdown-menu dropdown-menu-left">
@@ -35,7 +35,7 @@
                                 {{ ucwords(str_replace('_', ' ', $activity->type)) }}
                             </a>
                             <small class="text-muted float-right">
-                                <em>{{ date('F m, Y @ g:i A T') }}</em>
+                                <em>{{ date('m F, Y - g:i A') }}</em>
                             </small>
                         </h5>
                     </li>
@@ -53,7 +53,7 @@
 
                     <div class="ml-auto">
                         <div class="dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Actions
                             </button>
                             <ul class="dropdown-menu dropdown-menu-left">

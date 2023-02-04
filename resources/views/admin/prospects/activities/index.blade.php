@@ -39,8 +39,8 @@
                     <div class="d-flex">
 
                         <div>
-                            <h5>Activity type: {{ $activity->type }}</h5>
-                            <h5>Communication type: {{ $activity->communication_type }}</h5>
+                            <h5>Activity type: {{  ucwords(str_replace('_', ' ', $activity->type)) }}</h5>
+                            <h5>Communication type: {{  ucwords(str_replace('_', ' ', $activity->communication_type)) }}</h5>
                         </div>
 
                         <div class="ml-auto">
