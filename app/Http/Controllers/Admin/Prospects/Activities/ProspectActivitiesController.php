@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Prospects\Activities;
 
+
 use App\Http\Controllers\Controller;
 use App\Prospect;
+use App\ProspectActivity;
+use App\ProspectDocument;
 use Illuminate\Http\Request;
 
 class ProspectActivitiesController extends Controller
@@ -18,8 +21,29 @@ class ProspectActivitiesController extends Controller
         return view('admin.prospects.activities.create', compact('prospect'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Prospect $prospect)
     {
-        return $request->all();
+
+        $activity = ProspectActivity::create([
+            'prospect_id' => $prospect->id,
+            'communication_type' => $request->communication_type,
+            'type' => $request->type,
+            'notes' => $request->notes
+        ]);
+
+        if( $request->hasFile('documents')) {
+            $files = $request->file('documents');
+
+            foreach($files as $document){
+                $path = $document->store('public/prospects/' . $prospect->id . '/documents');
+                $doc = ProspectDocument::create([
+                    'prospect_id' => $prospect->id,
+                    'activity_id' => $activity->id,
+                    'path' => $path
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.prospects.activities.dashboard', $prospect->id)->with('success', 'Successfully created activity');
     }
 }

@@ -34,7 +34,7 @@
                     <div class="form-group row">
                         <label for="" class="col-md-3">Communication type</label>
                         <div class="col-md-9">
-                            <select name="type" class="form-select">
+                            <select name="communication_type" class="form-select">
                                 <option selected disabled value="">Select a Communication type</option>
                                 <option value="phone_call">Phone Call</option>
                                 <option value="email">Email</option>
@@ -68,14 +68,14 @@
                     <div class="form-group row">
                         <label for="" class="col-md-3">Documents</label>
                         <div class="col-md-9">
-                            <input type="file" class="form-control-file" name="document" multiple>
+                            <input type="file" class="form-control-file" name="documents[]" multiple>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="" class="col-md-3">Schedule Follow Up</label>
                         <div class="col-md-9">
-                            <input type="datetime-local" class="form-control" name="followup_date">
+                            <input type="datetime-local" class="form-control" name="follow_up_date">
                         </div>
                     </div>
 
