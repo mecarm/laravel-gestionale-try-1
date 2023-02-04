@@ -79,7 +79,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            @csrf
 
                             <div class="form-group">
                                 <label for="">Document Name</label>
@@ -93,7 +94,7 @@
                             
                             <div class="form-group">
                                 <label for="">Document Notes</label>
-                                <input class="form-control" type="file" name="" id="">
+                                <input class="form-control" type="file" name="path" id="">
                             </div>
                         </form>
                     </div>
