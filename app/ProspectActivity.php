@@ -17,4 +17,8 @@ class ProspectActivity extends Model
     {
         return $this->hasMany(\App\ProspectDocument::class, 'activity_id', 'id');
     }
+
+    public function getPrettyCreatedAttribute() {
+        return date('d F, Y ', strtotime($this->created_at));
+    }
 }

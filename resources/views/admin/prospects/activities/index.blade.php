@@ -24,7 +24,7 @@
                               <li><a class="dropdown-item" href="{{ route('admin.prospects.prospect.dashboard', $prospect) }}">Prospect Dashboard</a></li>
                               <li><a class="dropdown-item" href="{{ route('admin.prospects.activities.create', $prospect) }}">Log Activity</a></li>
                             </ul>
-                          </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,10 +52,10 @@
                     <hr class="bg-dark">
                     <h5>Notes:</h5>
                     <p>{{ $activity->notes }}</p>
-                    
+
                 </div>
             </div>
         @endforeach
-
+        
     </div>
 @endsection

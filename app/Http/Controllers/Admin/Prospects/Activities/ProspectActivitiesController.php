@@ -37,4 +37,9 @@ class ProspectActivitiesController extends Controller
 
         return redirect()->route('admin.prospects.activities.dashboard', $prospect->id)->with('success', 'Successfully created activity');
     }
+
+    public function show(Prospect $prospect, ProspectActivity $activity)
+    {
+        return view('admin.prospects.activities.show', ['prospect' => $prospect, 'activity' => $activity]);
+    }
 }
