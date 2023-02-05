@@ -61,7 +61,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{ route('admin.prospects.dashboard') }}" class="dropdown-item">Manage Prospects</a>
+                                    <a href="{{ route('admin.prospects.dashboard') }}" class="dropdown-item border-bottom">Manage Prospects</a>
+                                    <a class="dropdown-item text-danger mt-1" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         @endguest
