@@ -65,6 +65,7 @@
                 </div>
 
                 <hr>
+                @if ($documents->count())
                 <ul class="list-group list-group-flush">
                     @foreach ($documents::latest()->limit(5)->get() as $document)
                     <li class="list-group-item list-group-item-action">
@@ -79,7 +80,11 @@
                     </li>
                     @endforeach
                 </ul>
-                
+                @else
+                <ul>
+                    <li>There are not documents yet</li>
+                </ul>
+                @endif
             </div>
         </div>
 
