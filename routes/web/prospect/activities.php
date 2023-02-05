@@ -8,5 +8,4 @@ Route::get('{prospect}/create', [ProspectActivitiesController::class, 'create'])
 Route::post('{prospect}', [ProspectActivitiesController::class, 'store'])->name('store');
 Route::get('{prospect}/{activity}', [ProspectActivitiesController::class, 'show'])->name('show');
 
-
 ?>

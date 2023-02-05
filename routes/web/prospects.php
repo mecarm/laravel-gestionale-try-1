@@ -17,6 +17,7 @@ Route::delete('{prospect}', [ProspectsController::class, 'destroy'])->where('pro
 
 //Prospects/prospect/ crud
 Route::get('{prospect}/dashboard', [ProspectDashboardController::class, 'index'])->where('prospect', '[0-9]+')->name('prospect.dashboard');
+Route::post('{prospect}/dashboard', [ProspectDashboardController::class, 'store'])->where('prospect', '[0-9]+')->name('prospect.dashboard.store');
 
 Route::post('/', [ProspectsController::class, 'store'])->name('store');
 Route::put('{prospect}', [ProspectsController::class, 'update'])->where('prospect', '[0-9]+')->name('update');

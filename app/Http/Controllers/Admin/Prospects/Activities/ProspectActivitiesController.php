@@ -6,7 +6,6 @@ namespace App\Http\Controllers\Admin\Prospects\Activities;
 use App\Http\Controllers\Controller;
 use App\Prospect;
 use App\ProspectActivity;
-use App\ProspectDocument;
 use Illuminate\Http\Request;
 
 class ProspectActivitiesController extends Controller

@@ -58,12 +58,27 @@
                             </button>
                             <ul class="dropdown-menu dropdown-menu-left">
                               <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#addProspectDocumentModal">Add a Document</a></li>
-                              {{-- href="{{ route('admin.prospects.documents.create', $prospect->id) }}" --}}
                             </ul>
                         </div>
                     </div>
 
                 </div>
+
+                <hr>
+                <ul class="list-group list-group-flush">
+                    @foreach ($documents::latest()->limit(5)->get() as $document)
+                    <li class="list-group-item list-group-item-action">
+                        <h5>
+                            <a>
+                                {{$document->name}}
+                            </a>
+                            {{-- <small class="text-muted float-right">
+                                <em>{{ date('m F, Y - g:i A') }}</em>
+                            </small> --}}
+                        </h5>
+                    </li>
+                    @endforeach
+                </ul>
                 
             </div>
         </div>
@@ -79,7 +94,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('admin.prospects.prospect.dashboard.store', $prospect)}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
@@ -93,15 +108,18 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="">Document Notes</label>
-                                <input class="form-control" type="file" name="path" id="">
+                                <label for="">Document File</label>
+                                <input class="form-control" type="file" name="path">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Store Document</button>
                             </div>
                         </form>
+                        
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Store Document</button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
