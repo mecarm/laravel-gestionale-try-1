@@ -12,7 +12,7 @@
                               Actions
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="#">View Prospect</a></li>
+                              <li><a class="dropdown-item" href="{{ route('admin.prospects.show') }}">View Prospect</a></li>
                             </ul>
                         </div>
                     </div>

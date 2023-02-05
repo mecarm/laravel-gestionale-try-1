@@ -33,6 +33,16 @@
         {{-- Links per paginate --}}
         {{ $activities->links() }}
 
+        @if (! $activities->count())
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h3>There are no activities yet</h3>
+                    <h5 class="text-muted"> - On the action button at the top right, you can enter a new activity</h5>
+                </div>
+            </div>
+
+        @endif
+
         @foreach ($activities as $activity)
             <div class="card mt-3">
                 <div class="card-body">

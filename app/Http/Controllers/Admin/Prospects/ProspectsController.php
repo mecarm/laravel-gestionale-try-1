@@ -62,7 +62,7 @@ class ProspectsController extends Controller
      */
     public function show(Prospect $prospect)
     {
-        return $prospect->load('contact');
+        return view('admin.prospects.show', compact('prospect'));
     }
 
     /**
