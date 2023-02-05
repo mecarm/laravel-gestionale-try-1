@@ -73,9 +73,9 @@
                             <a>
                                 {{$document->name}}
                             </a>
-                            {{-- <small class="text-muted float-right">
-                                <em>{{ date('m F, Y - g:i A') }}</em>
-                            </small> --}}
+                            <small class="float-right text-muted">
+                                <em>{{date('F d, Y - g:i A', strtotime($document->created_at))}}</em>
+                            </small>
                         </h5>
                     </li>
                     @endforeach
