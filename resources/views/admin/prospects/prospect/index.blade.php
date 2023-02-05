@@ -74,7 +74,7 @@
                                 {{$document->name}}
                             </a>
                             <small class="float-right text-muted">
-                                <em>{{date('F d, Y - g:i A', strtotime($document->created_at))}}</em>
+                                <em>{{date('d F, Y - g:i A', strtotime($document->created_at))}}</em>
                             </small>
                         </h5>
                     </li>
