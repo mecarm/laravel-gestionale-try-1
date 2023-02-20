@@ -42,7 +42,7 @@
             <div class="card mt-3">
                 <div class="card-body">
                     @if ($prospect->profile_image)
-                        <img src="{{ Storage::url($prospect->profile_image) }}" alt="">
+                        <img class="img-fluid" src="{{ Storage::url($prospect->profile_image) }}" alt="">
                         
                     @else
                         <img class="img-fluid" src="/img/user.png" alt="">
